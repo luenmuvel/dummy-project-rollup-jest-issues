@@ -1,6 +1,7 @@
 import resolve from "@rollup/plugin-node-resolve";
-import babel from "rollup-plugin-babel";
 import json from "rollup-plugin-json";
+import alias from "rollup-plugin-alias";
+import serve from "rollup-plugin-serve";
 
 export default {
   input: "src/index.js",
@@ -10,10 +11,25 @@ export default {
     name: "testing",
   },
   plugins: [
-    resolve(),
     json(),
-    babel({
-      exclude: "node_modules/**",
+    resolve(),
+    alias({
+      resolve: [".js"],
+      entries: [
+        {
+          find: "global/A",
+          replacement: `${__dirname}/src/a_directory/a.js`,
+        },
+        {
+          find: "global/B",
+          replacement: `${__dirname}/src/b_directory/b.js`,
+        },
+      ],
+    }),
+    serve({
+      contentBase: "dist",
+      open: true,
+      port: 1234,
     }),
   ],
 };

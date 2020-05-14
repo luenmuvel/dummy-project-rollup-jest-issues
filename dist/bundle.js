@@ -4,11 +4,35 @@
   (global = global || self, factory(global.testing = {}));
 }(this, (function (exports) { 'use strict';
 
-  function suma(a, b) {
-    return a + b;
+  class A {
+    getMessage() {
+      return "this is a message from A class";
+    }
   }
 
-  exports.suma = suma;
+  class B {
+    getMessage() {
+      return "this is a message from B class";
+    }
+  }
+
+  // import A from "./a_directory/a";
+
+  class MyClass {
+    constructor() {}
+
+    getAMessage() {
+      const a = new A();
+      return a.getMessage();
+    }
+
+    getBMessage() {
+      const b = new B();
+      return b.getMessage();
+    }
+  }
+
+  exports.MyClass = MyClass;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
