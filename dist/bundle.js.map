@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","sources":["../src/index.js"],"sourcesContent":["export function suma(a, b) {\n  return a + b;\n}\n"],"names":["suma","a","b"],"mappings":";;;;;;EAAO,SAASA,IAAT,CAAcC,CAAd,EAAiBC,CAAjB,EAAoB;EACzB,SAAOD,CAAC,GAAGC,CAAX;EACD;;;;;;;;;;;;"}
